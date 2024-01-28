@@ -77,12 +77,7 @@ public class SearchBooks extends JFrame {
 					pst.setString(1, textFieldBookName.getText());
 					pst.setString(2, textFieldAuthor.getText());
 					ResultSet rs = pst.executeQuery();
-
-					if (rs.next()) {
-						table.setModel(DbUtils.resultSetToTableModel(rs));
-					} else {
-						JOptionPane.showMessageDialog(null, "No matching records found.");
-					}
+					table.setModel(DbUtils.resultSetToTableModel(rs));
 				} catch (Exception exp) {
 					exp.printStackTrace();
 				}
